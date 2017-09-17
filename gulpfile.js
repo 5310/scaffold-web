@@ -20,7 +20,7 @@ const { plugins: postcssPlugins, options: postcssOpts } = require('./postcss.con
 const rollup = require('gulp-better-rollup')
 const { inputOptions: rollupIOpts, outputOptions: rollupOOpts } = require('./rollup.config.js')
 
-const babel = require('gulp-babel')
+// const babel = require('gulp-babel')
 
 const pulp =
   () => exec(`pulp build -o ${PSCOUT} -- --source-maps`)
@@ -29,16 +29,16 @@ const pulp =
       console.error(stderr.split('\n').slice(1, -2).join('\n'))
     })
     .catch(err => console.error(`stderr: ${err}`))
-const pulpEs = () => pulp()
-  .then(() => gulp.src(`${PSCOUT}/**/*.js`)
-    .pipe(sourcemaps.init())
-    .pipe(babel({
-      plugins: ['babel-plugin-transform-commonjs-es2015-modules']
-    }))
-    .pipe(sourcemaps.write(''))
-    .pipe(gulp.dest(PSCOUT))
-  )
-  .catch(err => console.error(`stderr: ${err}`))
+// const pulpEs = () => pulp()
+//   .then(() => gulp.src(`${PSCOUT}/**/*.js`)
+//     .pipe(sourcemaps.init())
+//     .pipe(babel({
+//       plugins: ['babel-plugin-transform-commonjs-es2015-modules']
+//     }))
+//     .pipe(sourcemaps.write(''))
+//     .pipe(gulp.dest(PSCOUT))
+//   )
+//   .catch(err => console.error(`stderr: ${err}`))
 
 const logInputs = () => through.obj((chunk, enc, cb) => {
   console.log('Building: ' + path.relative(__dirname, chunk.path))
@@ -88,6 +88,18 @@ const tasksCommon = { // Every base task pipeline, given a source function
     .pipe(rollup(rollupIOpts, rollupOOpts))
     .pipe(sourcemaps.write(''))
     .pipe(gulp.dest('dist')),
+
+  sw: src => src([
+    'src/sw.js',
+  ])
+    .pipe(logInputs())
+    .pipe(gulp.dest('./dist')),
+
+  favicon: src => src([
+    'src/_assets/favicon/*.png',
+  ])
+    .pipe(logInputs())
+    .pipe(gulp.dest('./dist')),
 
 }
 const tasksBatched = { // Task set overrides with broken down batches
