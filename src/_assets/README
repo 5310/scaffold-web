@@ -1,0 +1,5 @@
+The `_assets` directory is for static assets like SVGs, PNGs, or even gLTF files, etc.
+
+Group these files as they make sense for the given project.
+
+Almost certainly, files under this directory will need to be converted to statically servable forms one way or the other. Please the conversion processes for the respective formats in the `gulpfile`.
