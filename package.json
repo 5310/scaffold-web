@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "serve": "./node_modules/.bin/http-server -p 8888 --S -C .cert.localhost.pem -K .key.localhost.pem dist",
+    "serve": "./node_modules/.bin/serve -Sn dist & ./node_modules/.bin/lt -p 5000 -s $(whoami)$(basename $PWD | sed 's/[^a-z^0-9]*//g')",
     "build": "./node_modules/.bin/gulp",
     "watch": "./node_modules/.bin/gulp watch",
     "test": "./node_modules/.bin/gulp test",
@@ -34,7 +34,7 @@
     "gulp-rename": "1.x",
     "gulp-sourcemaps": "2.x",
     "gulp-watch": "4.x",
-    "http-server": "0.x",
+    "localtunnel": "1.x",
     "postcss": "6.x",
     "postcss-cssnext": "3.x",
     "postcss-font-magician": "2.x",
@@ -51,6 +51,7 @@
     "rollup-plugin-node-resolve": "3.x",
     "rollup-plugin-pug": "0.x",
     "rollup-plugin-purs": "1.x",
+    "serve": "6.x",
     "stylelint": "8.x",
     "stylelint-config-standard": "17.x",
     "sugarss": "1.x",
