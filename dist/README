@@ -1,8 +1,0 @@
-The `src` directory is for the actual source files for the project.
-
-Files from this directory will in one way or the other be "compiled" into forms that will can be served statically from the `dist` directory:
-- Contents of subdirectories starting WITH an underscore WILL NOT be copied as-is to `dist`.
-  - These subdirectories function as simple asset libraries.
-- Contents of subdirectories starting WITHOUT any underscore WILL be copied as-is to `dist`.
-  - With `index.html` files these subdirectories function as static subpages by default.
-- Source files to be specifically compiled will be skipped, bundled, renamed, or otherwise compiled regardless.
