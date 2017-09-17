@@ -6,4 +6,6 @@ This scaffold sets up a web project based on my maximalist preferences. It uses 
 
 The configurations are unconventional, and are subject to change anytime. So, if you're still reading this, stop!
 
-Protip: There's a `.hidden` file included!
+Notes:
+- There's a `.hidden` file included!
+- Be sure to get rid of the test SSL certificate if shipping with it.
