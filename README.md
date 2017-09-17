@@ -8,5 +8,11 @@ The configurations are unconventional, and are subject to change anytime. So, if
 
 Notes:
 - There's a `.hidden` file included!
-- Be sure to get rid of the test SSL certificate if shipping with it.
-- [Pushing `dist` to a subtree.](https://gist.github.com/cobyism/4730490)
+- `package.json` scripts:
+  - `build`: Compiles `src` to `dist`.
+  - `watch`: Watches for changes and rebuilds.
+  - `serve`: Serves `dist` using `serve` and `localtunnel`.
+  - `dev`: Builds, watches, and serves.
+  - `gh-pages`: Deploys [`dist` to `gh-pages`](https://gist.github.com/cobyism/4730490)
+  - `install-psc-package-linux`: Locally installs `psc-package` on Linux.
+    - No dice for other platforms for now.

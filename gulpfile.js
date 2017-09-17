@@ -23,10 +23,14 @@ const { inputOptions: rollupIOpts, outputOptions: rollupOOpts } = require('./rol
 // const babel = require('gulp-babel')
 
 const pulp =
-  () => exec(`pulp build -o ${PSCOUT} -- --source-maps`)
+  () => exec(`if [ -f ./node_modules/.bin/psc-package ]; then pulp build -o ${PSCOUT} -- --source-maps; fi`)
     .then(({stdout, stderr}) => {
-      console.error('Building: Purescript modules')
-      console.error(stderr.split('\n').slice(1, -2).join('\n'))
+      if (stderr) {
+        console.log('Building: Purescript modules')
+        console.error(stderr.split('\n').slice(1, -2).join('\n'))
+      } else {
+        console.log('No Purescript modules to build')
+      }
     })
     .catch(err => console.error(`stderr: ${err}`))
 // const pulpEs = () => pulp()
