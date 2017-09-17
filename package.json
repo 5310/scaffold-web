@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "serve": "./node_modules/.bin/serve -Sn dist & ./node_modules/.bin/lt -p 5000 -s $(whoami)$(basename $PWD | sed 's/[^a-z^0-9]*//g')",
+    "serve": "port=$(shuf -i 2000-65000 -n 1); echo serving on: :$port; ./node_modules/.bin/serve -Sn -p $port dist &   ./node_modules/.bin/lt -p $port -s $(whoami)$(basename $PWD | sed 's/[^a-z^0-9]*//g')",
     "build": "./node_modules/.bin/gulp",
     "watch": "./node_modules/.bin/gulp watch",
     "test": "./node_modules/.bin/gulp test",
