@@ -99,7 +99,7 @@ const tasksCommon = { // Every base task pipeline, given a source function
     'src/_assets/favicon/*.png',
   ])
     .pipe(logInputs())
-    .pipe(gulp.dest('./dist')),
+    .pipe(gulp.dest('./dist/_assets/favicon')),
 
 }
 const tasksBatched = { // Task set overrides with broken down batches

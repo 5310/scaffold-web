@@ -9,3 +9,4 @@ The configurations are unconventional, and are subject to change anytime. So, if
 Notes:
 - There's a `.hidden` file included!
 - Be sure to get rid of the test SSL certificate if shipping with it.
+- [Pushing `dist` to a subtree.](https://gist.github.com/cobyism/4730490)

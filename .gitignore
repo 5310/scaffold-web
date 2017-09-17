@@ -3,7 +3,7 @@
 # Temporary
 .psc-cache
 .psc-package
-dist
+#dist
 scratch
 src/_psc-output
 

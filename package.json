@@ -6,6 +6,7 @@
     "watch": "./node_modules/.bin/gulp watch",
     "test": "./node_modules/.bin/gulp test",
     "dev": "npm run serve & npm run watch",
+    "gh-pages": "git add dist && git commit --allow-empty-message -m '' && git subtree push --prefix dist origin gh-pages",
     "install-psc-package": "echo Setting up PureScript && wget -qO - $(curl -s https://api.github.com/repos/purescript/psc-package/releases/latest | grep 'browser_' | cut -d\\\" -f4 | grep linux64 | grep .tar.gz) | tar xvz -O psc-package/psc-package > ./node_modules/.bin/psc-package && ./node_modules/.bin/psc-package update",
     "postinstall": "npm run install-psc-package"
   },
