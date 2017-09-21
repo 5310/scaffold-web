@@ -95,7 +95,7 @@ const tasksCommon = { // Every base task pipeline, given a source function
     .pipe(gulp.dest('dist')),
 
   sw: src => src([
-    'src/sw.js',
+    'src/**/sw.js',
   ])
     .pipe(logInputs())
     .pipe(gulp.dest('./dist')),
