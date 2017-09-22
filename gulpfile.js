@@ -101,7 +101,7 @@ const tasksCommon = { // Every base task pipeline, given a source function
     .pipe(logInputs())
     .pipe(gulp.dest('./dist')),
 
-  favicon: src => src([
+  favicons: src => src([
     'src/_assets/**/favicons/*.png',
   ])
     .pipe(logInputs())
