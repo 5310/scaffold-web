@@ -2,6 +2,7 @@
 
 # Temporary
 .psc-cache
+.pulp-cache
 .psc-package
 dist
 scratch
