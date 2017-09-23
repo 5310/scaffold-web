@@ -20,6 +20,29 @@ const { plugins: postcssPlugins, options: postcssOpts } = require('./.postcss.co
 const rollup = require('gulp-better-rollup')
 const { inputOptions: rollupIOpts, outputOptions: rollupOOpts } = require('./.rollup.config.js')
 
+// const babel = require('gulp-babel')
+const pulp =
+  () => exec(`if [ -f ./node_modules/.bin/psc-package ]; then pulp build -o ${PSCOUT} -- --source-maps; fi`)
+    .then(({stdout, stderr}) => {
+      if (stderr) {
+        console.log('Building: Purescript modules')
+        console.error(stderr.split('\n').slice(1, -2).join('\n'))
+      } else {
+        console.log('No Purescript modules to build')
+      }
+    })
+    .catch(err => console.error(`stderr: ${err}`))
+// const pulpEs = () => pulp()
+//   .then(() => gulp.src(`${PSCOUT}/**/*.js`)
+//     .pipe(sourcemaps.init())
+//     .pipe(babel({
+//       plugins: ['babel-plugin-transform-commonjs-es2015-modules']
+//     }))
+//     .pipe(sourcemaps.write(''))
+//     .pipe(gulp.dest(PSCOUT))
+//   )
+//   .catch(err => console.error(`stderr: ${err}`))
+
 const logInputs = () => through.obj((chunk, enc, cb) => {
   console.log('Building: ' + path.relative(__dirname, chunk.path))
   cb(null, chunk)
@@ -85,6 +108,19 @@ const tasksCommon = { // Every base task pipeline, given a source function
 
 }
 const tasksBatched = { // Task set overrides with broken down batches
+
+  purescript: {
+    default: pulp,
+    watch: () => watch(['src/**/*.purs'], pulp)
+  },
+
+  rollup: {
+    default: {
+      deps: ['purescript'], // The JavaScript may depend on the Purescript.
+      task: () => tasksCommon.rollup(src)
+    },
+    watch: () => watch(['src/**/*.js'], () => tasksCommon.rollup(src)) // Need to update build for deps changes
+  },
 
   default: {
     test: () => console.log('Error: No test implemented')
