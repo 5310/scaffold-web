@@ -10,7 +10,8 @@
     "deploy-gh-pages": "if [ ! -d './dist/.git' ]; then git -C dist init; git -C dist checkout -B gh-pages; git -C dist remote add origin $(git config --get remote.origin.url); fi; git -C dist add --all .; git -C dist commit -q --allow-empty-message -m ''; git -C dist push origin HEAD",
     "deploy-surge": "echo Surge.sh not yet setup # surge",
     "deploy": "npm run build && (npm run deploy-gh-pages; npm run deploy-surge)",
-    "install-psc-package-linux": "echo Setting up PureScript && wget -qO - $(curl -s https://api.github.com/repos/purescript/psc-package/releases/latest | grep 'browser_' | cut -d\\\" -f4 | grep linux64 | grep .tar.gz) | tar xvz -O psc-package/psc-package > ./node_modules/.bin/psc-package && (psc-package init || psc-package update)"
+    "install-psc-package-linux": "echo Setting up PureScript && wget -qO - $(curl -s https://api.github.com/repos/purescript/psc-package/releases/latest | grep 'browser_' | cut -d\\\" -f4 | grep linux64 | grep .tar.gz) | tar xvz -O psc-package/psc-package > ./node_modules/.bin/psc-package && (psc-package init || psc-package update)",
+    "psc-package": "psc-package"
   },
   "dependencies": {
   },
