@@ -12,6 +12,9 @@
     "deploy": "npm run build && (npm run deploy-gh-pages; npm run deploy-surge)"
   },
   "dependencies": {
+    "@cycle/dom": "18.x",
+    "@cycle/run": "3.x",
+    "xstream": "10.x"
   },
   "devDependencies": {
     "babel-core": "6.x",
