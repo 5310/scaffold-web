@@ -11,11 +11,11 @@
     "deploy-surge": "echo Surge.sh not yet setup # surge",
     "deploy": "npm run build && (npm run deploy-gh-pages; npm run deploy-surge)"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-core": "6.x",
     "babel-eslint": "7.x",
+    "babel-plugin-external-helpers": "6.x",
     "babel-plugin-transform-commonjs-es2015-modules": "3.x",
     "babel-preset-env": "1.x",
     "babel-preset-stage-2": "6.x",
