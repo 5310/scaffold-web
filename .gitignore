@@ -4,6 +4,7 @@
 .psc-cache
 .pulp-cache
 .psc-package
+.psc-ide-port
 dist
 scratch
 src/_psc-output
