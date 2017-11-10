@@ -39,6 +39,7 @@
     "postcss": "6.x",
     "postcss-cssnext": "3.x",
     "postcss-font-magician": "2.x",
+    "postcss-gridlover": "0.x",
     "postcss-mixins": "6.x",
     "postcss-nested": "2.x",
     "postcss-nested-props": "1.x",
