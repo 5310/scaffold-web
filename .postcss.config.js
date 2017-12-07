@@ -3,6 +3,8 @@ module.exports = {
     require('postcss-nested-props'),
     require('postcss-nested'),
     require('postcss-gridlover'),
+    require('postcss-for'),
+    require('postcss-each'),
     require('postcss-mixins'),
     require('postcss-font-magician'),
     require('postcss-cssnext'),
